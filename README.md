@@ -11,8 +11,8 @@ A simple RESTful API for managing tasks. This API allows users to create, read, 
 
 ## Requirements
 
--   Node.js (v14.x or higher)
--   MongoDB (v4.x or higher)
+-   Node.js 
+-   MongoDB 
 
 ## Installation
 
@@ -22,3 +22,47 @@ A simple RESTful API for managing tasks. This API allows users to create, read, 
 git clone https://github.com/yourusername/todo-api.git
 cd todo-api
 ```
+
+### 2. Clone the repository
+
+```bash
+npm install
+```
+
+### 3. Set up environment variables
+Create a .env file in the root directory and add your MongoDB connection string. Example:
+```bash
+MONGO_URL=mongodb://localhost:27017/task_api
+```
+
+### 4. Start the application
+```bash
+npm start
+```
+This will start the API server on http://localhost:3000.
+
+# API Endpoints
+### **POST** `/api/tasks`
+- Description: Create a new task.
+- Required Fields: `title`, `dueDate` (optional), `description` (optional), `category` (optional).
+
+---
+
+### **GET** `/api/tasks`
+- Description: Retrieve all tasks or filter tasks by category.
+- Query Parameters: 
+  - `category` (optional): Filter tasks by category (case-insensitive).
+
+---
+
+### **PATCH** `/api/tasks/:id`
+- Description: Update an existing task by its ID.
+- Required Fields: Any of the task properties to update (`title`, `description`, `dueDate`, `category`, `completed`).
+
+---
+
+### **DELETE** `/api/tasks/:id`
+- Description: Delete a task by its ID.
+
+
+
